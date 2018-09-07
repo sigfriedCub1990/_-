@@ -1,33 +1,41 @@
 var _$ = {};
 
 _$ = (function () {
-     function select(selector) {
-        return document.querySelectorAll(selector)[0];
+    let _selectedElement = null;
+
+    function select(selector) {
+        _selectedElement = document.querySelectorAll(selector)[0];
+        return this;
     }
 
-    function changeColor(selector, newColor) {
-        let elem = select(selector);
-        elem.style.color = newColor;
+    function changeColor(newColor) {
+        _selectedElement.style.color = newColor;
+        return this;
     }
 
     function selectById (id) {
         if (id[0] !== '#') {
-            return document.getElementById(id);
+            _selectedElement = document.getElementById(id);
+            return this;
         } else {
-            return document.getElementById(`#${id}`);
+            _selectedElement = document.getElementById(`#${id}`);
+            return this;
         }
     }
 
     function selectByClass (className) {
         if (id[0] !== '#') {
-            return document.getElementById(className);
+            _selectedElement = document.getElementByClass(className);
+            return this;
         } else {
-            return document.getElementById(`.${className}`);
+            _selectedElement = document.getElementByClass(`.${className}`);
+            return this;
         }
     }
 
-    function click(element, fn) {
-        element.addEventListener('click', fn);
+    function click(fn) {
+        _selectedElement.addEventListener('click', fn);
+        return this;
     }
 
     
@@ -39,5 +47,3 @@ _$ = (function () {
       changeColor: changeColor
     };
 })();
-
-console.log(_$);

@@ -1,5 +1,5 @@
-let button = _$.select('#clickable');
+_$.select('#clickable').click(function() {
+    alert('Yuhuuuuuuuu');
+});
 
-_$.click(button, function () {
-    alert('Huyuuuuuuuuuuuuu');
-})
+console.log('The End is Near');
