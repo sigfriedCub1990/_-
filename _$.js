@@ -15,20 +15,20 @@ _$ = (function () {
 
     function selectById (id) {
         if (id[0] !== '#') {
-            _selectedElement = document.getElementById(id);
+            _selectedElement = document.getElementById(`#${id}`);
             return this;
         } else {
-            _selectedElement = document.getElementById(`#${id}`);
+            _selectedElement = document.getElementById(id);
             return this;
         }
     }
 
     function selectByClass (className) {
-        if (id[0] !== '#') {
-            _selectedElement = document.getElementByClass(className);
+        if (className[0] !== '.') {
+            _selectedElement = document.getElementByClass(`.${className}`);
             return this;
         } else {
-            _selectedElement = document.getElementByClass(`.${className}`);
+            _selectedElement = document.getElementByClass(className);
             return this;
         }
     }
